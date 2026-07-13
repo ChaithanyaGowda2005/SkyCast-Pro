@@ -5,11 +5,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import com.chaithanya.skycast.api.WeatherApiClient;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
+        WeatherApiClient api = new WeatherApiClient();
+
+        try {
+            String json = api.getWeatherData("Bangalore");
+            System.out.println(json);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Label label = new Label("Welcome to SkyCast Pro!");
 
