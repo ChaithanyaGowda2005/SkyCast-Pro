@@ -6,16 +6,31 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import com.chaithanya.skycast.api.WeatherApiClient;
+import com.chaithanya.skycast.model.Weather;
+import com.chaithanya.skycast.service.WeatherService;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        WeatherApiClient api = new WeatherApiClient();
+
+        WeatherService service = new WeatherService();
 
         try {
-            String json = api.getWeatherData("Bangalore");
-            System.out.println(json);
+
+            Weather weather = service.getWeather("Bangalore");
+
+            System.out.println("City : " + weather.getName());
+
+            System.out.println("Temperature : " + weather.getMain().getTemp());
+
+            System.out.println("Humidity : " + weather.getMain().getHumidity());
+
+            System.out.println("Wind Speed : " + weather.getWind().getSpeed());
+
+            System.out.println("Description : "
+                    + weather.getWeather().get(0).getDescription());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
