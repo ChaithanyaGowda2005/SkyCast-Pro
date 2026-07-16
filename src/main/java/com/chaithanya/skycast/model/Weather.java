@@ -1,7 +1,8 @@
 package com.chaithanya.skycast.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
-import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Weather {
 
@@ -12,6 +13,10 @@ public class Weather {
     private Wind wind;
 
     private List<WeatherCondition> weather;
+
+    private int visibility;
+
+    private Sys sys;
 
     public Weather() {
     }
@@ -32,6 +37,14 @@ public class Weather {
         return weather;
     }
 
+    public int getVisibility() {
+        return visibility;
+    }
+
+    public Sys getSys() {
+        return sys;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -46,5 +59,13 @@ public class Weather {
 
     public void setWeather(List<WeatherCondition> weather) {
         this.weather = weather;
+    }
+
+    public void setVisibility(int visibility) {
+        this.visibility = visibility;
+    }
+
+    public void setSys(Sys sys) {
+        this.sys = sys;
     }
 }

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.chaithanya.skycast.controller.WeatherController"
+            stylesheets="@../css/style.css"
+            styleClass="background">
+
+    <center>
+
+        <VBox alignment="TOP_CENTER"
+              spacing="20"
+              styleClass="card">
+
+            <padding>
+                <Insets top="25" right="35" bottom="25" left="35"/>
+            </padding>
+
+            <!-- Title -->
+
+            <Label text="☁ SkyCast Pro"
+                   styleClass="title"/>
+
+            <Label text="Live Weather Intelligence"
+                   styleClass="subtitle"/>
+
+            <!-- Search -->
+
+            <HBox alignment="CENTER"
+                  spacing="10">
+
+                <TextField fx:id="cityField"
+                           prefWidth="280"
+                           promptText="Search any city..."/>
+
+                <Button text="Search"
+                        onAction="#searchWeather"
+                        styleClass="searchButton"/>
+
+            </HBox>
+
+            <Separator prefWidth="500"/>
+
+            <!-- Weather Icon -->
+
+            <ImageView fx:id="weatherIcon"
+                       fitHeight="90"
+                       fitWidth="90"
+                       preserveRatio="true"/>
+
+            <!-- Main Weather -->
+
+            <Label fx:id="cityLabel"
+                   text="City"
+                   styleClass="city"/>
+
+            <Label fx:id="temperatureLabel"
+                   text="28°C"
+                   styleClass="temperature"/>
+
+            <Label fx:id="descriptionLabel"
+                   text="Weather Description"
+                   styleClass="description"/>
+
+            <!-- Cards Row 1 -->
+
+            <HBox spacing="25"
+                  alignment="CENTER">
+
+                <VBox styleClass="infoCard">
+
+                    <Label text="🥵"/>
+
+                    <Label text="Feels Like"/>
+
+                    <Label fx:id="feelsLikeLabel"/>
+
+                </VBox>
+
+                <VBox styleClass="infoCard">
+
+                    <Label text="💧"/>
+
+                    <Label text="Humidity"/>
+
+                    <Label fx:id="humidityLabel"/>
+
+                </VBox>
+
+                <VBox styleClass="infoCard">
+
+                    <Label text="🌬"/>
+
+                    <Label text="Wind"/>
+
+                    <Label fx:id="windLabel"/>
+
+                </VBox>
+
+            </HBox>
+
+            <!-- Cards Row 2 -->
+
+            <HBox spacing="25"
+                  alignment="CENTER">
+
+                <VBox styleClass="infoCard">
+
+                    <Label text="🧭"/>
+
+                    <Label text="Pressure"/>
+
+                    <Label fx:id="pressureLabel"/>
+
+                </VBox>
+
+                <VBox styleClass="infoCard">
+
+                    <Label text="👁"/>
+
+                    <Label text="Visibility"/>
+
+                    <Label fx:id="visibilityLabel"/>
+
+                </VBox>
+
+                <VBox styleClass="infoCard">
+
+                    <Label text="🌍"/>
+
+                    <Label text="Country"/>
+
+                    <Label fx:id="countryLabel"/>
+
+                </VBox>
+
+            </HBox>
+
+            <!-- Sunrise / Sunset -->
+
+            <HBox spacing="40"
+                  alignment="CENTER">
+
+                <VBox alignment="CENTER">
+
+                    <Label text="🌅 Sunrise"/>
+
+                    <Label fx:id="sunriseLabel"/>
+
+                </VBox>
+
+                <VBox alignment="CENTER">
+
+                    <Label text="🌇 Sunset"/>
+
+                    <Label fx:id="sunsetLabel"/>
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
