@@ -1,100 +1,141 @@
-# 🌤️ SkyCast Pro
+# ☁ SkyCast Pro
 
-SkyCast Pro is a modern desktop weather application built using JavaFX. It provides real-time weather information for cities around the world using the OpenWeatherMap API.
+A modern desktop weather application built using **JavaFX** that provides real-time weather information for any city using the **OpenWeatherMap API**.
 
 ---
 
-## ✨ Features
+## 📌 Features
 
-- 🔍 Search weather by city
-- 🌡️ Live temperature
-- 🥵 Feels Like temperature
+- 🔍 Search weather by city name
+- 🌡 Current temperature
+- 🤒 Feels like temperature
 - 💧 Humidity
-- 🌬️ Wind Speed
-- 🧭 Atmospheric Pressure
-- 👁️ Visibility
-- 🌍 Country Information
-- 🌅 Sunrise Time
-- 🌇 Sunset Time
-- ☁️ Weather Icons
-- 🎨 Modern JavaFX UI
-- 📱 Responsive Dashboard Layout
+- 🌬 Wind speed
+- 🧭 Atmospheric pressure
+- 👁 Visibility
+- 🌍 Country
+- 🌅 Sunrise time
+- 🌇 Sunset time
+- ☁ Live weather icon
+- 🎨 Modern JavaFX User Interface
 
 ---
 
-## 🛠️ Tech Stack
+## 🖥️ Technologies Used
 
-- Java
+- Java 17
 - JavaFX
 - Maven
-- FXML
-- CSS
-- Jackson
+- Jackson Databind
 - OpenWeatherMap API
-- Git & GitHub
+- CSS
+- FXML
+- IntelliJ IDEA
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```
 SkyCast-Pro
 │
-├── controller
-├── model
-├── service
-├── api
-├── util
-├── resources
-│   ├── css
-│   ├── images
-│   └── view
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com.chaithanya.skycast
+│   │   │       ├── controller
+│   │   │       ├── model
+│   │   │       ├── service
+│   │   │       └── Main.java
+│   │   │
+│   │   └── resources
+│   │       ├── css
+│   │       └── view
+│   │
 ├── pom.xml
 └── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 How to Run
 
-### Clone the Repository
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/SkyCast-Pro.git
+git clone https://github.com/ChaithanyaGowda2005/SkyCast-Pro.git
 ```
 
-### Open the Project
+### 2. Open the project
 
-Open the project in IntelliJ IDEA.
+Open the project using **IntelliJ IDEA**.
 
-### Run the Application
+### 3. Install Maven dependencies
 
-```bash
-mvn javafx:run
+Allow Maven to download all required dependencies.
+
+### 4. Add your API Key
+
+Open:
+
+```
+WeatherService.java
+```
+
+Replace:
+
+```java
+private static final String API_KEY = "a1083bce5d3d85401a25807237dc6fed";
+```
+
+with your own OpenWeatherMap API key.
+
+### 5. Run the project
+
+Run:
+
+```
+Main.java
 ```
 
 ---
 
-## 📸 Screenshots
+## 📷 Application Preview
 
-### Main Dashboard
+The application displays:
 
-(Add a screenshot here after uploading it to GitHub.)
+- Weather icon
+- City name
+- Temperature
+- Weather description
+- Feels Like
+- Humidity
+- Wind Speed
+- Pressure
+- Visibility
+- Country
+- Sunrise
+- Sunset
 
 ---
 
-## 📌 Future Enhancements
+## 🌐 Weather API
 
-- 📅 5-Day Weather Forecast
-- ⏰ Hourly Forecast
-- 🌦️ Dynamic Weather Backgrounds
-- 🌙 Dark Mode
-- ⭐ Favorite Cities
-- 📜 Search History
-- 🌍 Interactive Weather Map
-- 🌫️ Air Quality Index (AQI)
-- ☀️ UV Index
-- ✨ Weather Animations
+This project uses the **OpenWeatherMap API**.
+
+https://openweathermap.org/api
+
+---
+
+## 🎯 Future Improvements
+
+- 5-Day Weather Forecast
+- Dark Mode
+- Automatic Location Detection
+- Weather Alerts
+- Air Quality Index (AQI)
+- Unit Conversion (°C / °F)
+- Recent Search History
 
 ---
 
@@ -102,10 +143,10 @@ mvn javafx:run
 
 **Chaithanya**
 
-GitHub: https://github.com/YOUR_USERNAME
+Java Full Stack Developer
 
 ---
 
 ## 📄 License
 
-This project is developed for educational and portfolio purposes.
+This project is created for educational and learning purposes.

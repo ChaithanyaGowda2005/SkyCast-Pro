@@ -28,13 +28,13 @@ public class WeatherController {
     private Label descriptionLabel;
 
     @FXML
+    private Label feelsLikeLabel;
+
+    @FXML
     private Label humidityLabel;
 
     @FXML
     private Label windLabel;
-
-    @FXML
-    private Label feelsLikeLabel;
 
     @FXML
     private Label pressureLabel;
@@ -58,17 +58,21 @@ public class WeatherController {
 
     @FXML
     public void initialize() {
+
         cityField.setText("Bengaluru");
+
         searchWeather();
     }
 
     @FXML
     public void searchWeather() {
 
-        String city = cityField.getText();
+        String city = cityField.getText().trim();
 
-        if (city == null || city.isBlank()) {
-            cityLabel.setText("Please enter a city name.");
+        if (city.isEmpty()) {
+
+            cityLabel.setText("Please enter a city.");
+
             return;
         }
 
@@ -76,19 +80,21 @@ public class WeatherController {
 
             Weather weather = weatherService.getWeather(city);
 
-            cityLabel.setText("📍 " + weather.getName() + ", " + weather.getSys().getCountry());
+            cityLabel.setText(weather.getName() + ", " + weather.getSys().getCountry());
 
             temperatureLabel.setText(
-                    String.format("%.1f °C", weather.getMain().getTemp()));
+                    String.format("%.1f °C",
+                            weather.getMain().getTemp()));
 
             descriptionLabel.setText(
-                    weather.getWeather().get(0).getDescription());
+                    capitalize(weather.getWeather().get(0).getDescription()));
 
             feelsLikeLabel.setText(
-                    String.format("%.1f °C", weather.getMain().getFeelsLike()));
+                    String.format("%.1f °C",
+                            weather.getMain().getFeelsLike()));
 
             humidityLabel.setText(
-                    weather.getMain().getHumidity() + "%");
+                    weather.getMain().getHumidity() + " %");
 
             windLabel.setText(
                     weather.getWind().getSpeed() + " m/s");
@@ -108,18 +114,21 @@ public class WeatherController {
             sunsetLabel.setText(
                     formatTime(weather.getSys().getSunset()));
 
-            String iconCode = weather.getWeather().get(0).getIcon();
+            String iconCode =
+                    weather.getWeather().get(0).getIcon();
 
-            String iconUrl =
-                    "https://openweathermap.org/img/wn/"
-                            + iconCode
-                            + "@2x.png";
+            weatherIcon.setImage(
+                    new Image(
+                            "https://openweathermap.org/img/wn/"
+                                    + iconCode
+                                    + "@4x.png",
+                            true));
 
-            weatherIcon.setImage(new Image(iconUrl));
+        }
 
-        } catch (Exception e) {
+        catch (Exception e) {
 
-            cityLabel.setText("❌ City Not Found");
+            cityLabel.setText("City Not Found");
 
             temperatureLabel.setText("--");
 
@@ -145,15 +154,26 @@ public class WeatherController {
 
             e.printStackTrace();
         }
+
     }
 
     private String formatTime(long unixTime) {
 
-        LocalDateTime dateTime = LocalDateTime.ofInstant(
-                Instant.ofEpochSecond(unixTime),
-                ZoneId.systemDefault());
+        LocalDateTime time =
+                LocalDateTime.ofInstant(
+                        Instant.ofEpochSecond(unixTime),
+                        ZoneId.systemDefault());
 
-        return dateTime.format(
+        return time.format(
                 DateTimeFormatter.ofPattern("hh:mm a"));
+    }
+
+    private String capitalize(String text) {
+
+        if (text == null || text.isEmpty())
+            return "";
+
+        return text.substring(0, 1).toUpperCase()
+                + text.substring(1);
     }
 }

@@ -14,11 +14,19 @@ public class Main extends Application {
                 getClass().getResource("/view/weather.fxml")
         );
 
-        Scene scene = new Scene(loader.load(), 700, 550);
+        Scene scene = new Scene(loader.load(), 1280, 720);
+
+        stage.setMinWidth(1280);
+        stage.setMinHeight(720);
+        stage.setResizable(false);
 
         stage.setTitle("SkyCast Pro");
 
         stage.setScene(scene);
+
+        stage.setResizable(false);
+
+        stage.centerOnScreen();
 
         stage.show();
     }
